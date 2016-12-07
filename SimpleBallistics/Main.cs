@@ -19,7 +19,7 @@ namespace SimpleBallistics
         /// <summary>
         /// RangeMonkey version minor
         /// </summary>
-        public const int REVISION = 6;
+        public const int REVISION = 10;
         
         /// <summary>
         /// Is this a beta version?

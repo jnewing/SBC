@@ -27,6 +27,8 @@ namespace SimpleBallistics
             InitializeComponent();
 
             comboBox1.DataSource = Enum.GetValues(typeof(BallisticsLib.Ballistics.__DragFunctions));
+
+            this.Text = string.Format("{0} - Version: {1:N2}-{2}", this.Text, Main.VERSION, Main.REVISION);
         }
 
         /// <summary>
@@ -76,6 +78,18 @@ namespace SimpleBallistics
             // If we wish to use the weather correction features, we need to 
             // Correct the BC for any weather conditions.  If we want standard conditions,
             // then we can just leave this commented out.
+            // 
+            // NOTES:
+            // Altitude: The altitude above sea level in feet.Standard altitude is 0 feet above sea level.
+            //
+            // Barometer: The barometric pressure in inches of mercury(in Hg).
+            // This is not "absolute" pressure, it is the "standardized" pressure reported in the papers and news.
+            // Standard pressure is 29.53 in Hg.
+            //
+            // Temperature:  The temperature in Fahrenheit.Standard temperature is 59 degrees.
+            //
+            // RelativeHumidity:  The relative humidity fraction.  Ranges from 0.00 to 1.00, with 0.50 being 50 % relative humidity.
+            // Standard humidity is 78 %
             if (cbAtmosphere.Checked)
                 bc = BallisticsLib.Ballistics.AtmCorrect(bc, Properties.Settings.Default.Altitude, Properties.Settings.Default.Barometer, Properties.Settings.Default.Temperature, Properties.Settings.Default.RelativeHumidity);
 
@@ -100,8 +114,6 @@ namespace SimpleBallistics
                     string.Format("{0} in", Math.Round(calcs[x]["path"], 1)),
                     Math.Round(calcs[x]["correction_moa"], 2),
                     string.Format("{0}", Math.Round(calcs[x]["correction_mil"] * 1000000, 2)),
-                    // BallisticsLib.Ballistics.toMILClicks(Math.Round(calcs[x]["correction_mil"] * 1000000, 2)),
-                    // BallisticsLib.Ballistics.toMOAClicks(Math.Round(calcs[x]["correction_moa"], 2)),
                     string.Format("{0}", calcClicks(Math.Round(calcs[x]["correction_mil"] * 1000000, 2), Math.Round(calcs[x]["correction_moa"], 2))),
                     string.Format("{0} sec", Math.Round(calcs[x]["time"], 2)),
                     string.Format("{0} fps", Math.Round(calcs[x]["velocity_z"], 1)),
@@ -252,36 +264,35 @@ namespace SimpleBallistics
 
             switch (Properties.Settings.Default.clickTurretGrad)
             {
-                case "1 / 20":
+                case "1/20":
                     divisor = 0.05;
                     break;
 
-                case "1 / 10":
+                case "1/10":
                     divisor = 0.10;
                     break;
 
-                case "1 / 8":
+                case "1/8":
                     divisor = 0.125;
                     break;
 
-                case "1 / 6":
+                case "1/6":
                     divisor = 0.166;
                     break;
 
-                case "1 / 5":
+                case "1/5":
                     divisor = 0.20;
                     break;
 
-
-                case "1 / 3":
+                case "1/3":
                     divisor = 0.333;
                     break;
 
-                case "1 / 2":
+                case "1/2":
                     divisor = 0.50;
                     break;
 
-                case "5 / 8":
+                case "5/8":
                     divisor = 0.625;
                     break;
 
@@ -293,7 +304,7 @@ namespace SimpleBallistics
                     divisor = 2;
                     break;
 
-                case "1 / 4":
+                case "1/4":
                 default:
                     divisor = 0.25;
                     break;

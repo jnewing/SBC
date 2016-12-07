@@ -34,7 +34,7 @@ namespace SimpleBallistics.BallisticsLib
 
         public const int __BCOMP_MAXRANGE__ = 5000;
         public const double GRAVITY = -32.194;
-        public const double GNU_PI = 3.141592653589;    // Pi, more or less.
+        public const double GNU_PI = 3.141592653589;    // Pi, more or less...
 
         #endregion
 

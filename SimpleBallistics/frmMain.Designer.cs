@@ -31,6 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.clRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDrop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clCorrectionMOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clCorrectionMIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clClicks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clVelocity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clEnergy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,6 +61,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.cbAtmosphere = new System.Windows.Forms.CheckBox();
+            this.cbClicks = new System.Windows.Forms.CheckBox();
             this.btnCalc = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,15 +72,6 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.clRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDrop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clCorrectionMOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clCorrectionMIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clClicks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clVelocity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clEnergy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbClicks = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -123,6 +123,54 @@
             this.dataGridView1.Size = new System.Drawing.Size(938, 323);
             this.dataGridView1.TabIndex = 0;
             // 
+            // clRange
+            // 
+            this.clRange.HeaderText = "Range";
+            this.clRange.Name = "clRange";
+            this.clRange.ReadOnly = true;
+            // 
+            // clDrop
+            // 
+            this.clDrop.HeaderText = "Drop (Inches)";
+            this.clDrop.Name = "clDrop";
+            this.clDrop.ReadOnly = true;
+            // 
+            // clCorrectionMOA
+            // 
+            this.clCorrectionMOA.HeaderText = "Correction (MOA)";
+            this.clCorrectionMOA.Name = "clCorrectionMOA";
+            this.clCorrectionMOA.ReadOnly = true;
+            // 
+            // clCorrectionMIL
+            // 
+            this.clCorrectionMIL.HeaderText = "Correction (MIL)";
+            this.clCorrectionMIL.Name = "clCorrectionMIL";
+            this.clCorrectionMIL.ReadOnly = true;
+            // 
+            // clClicks
+            // 
+            this.clClicks.HeaderText = "Clicks";
+            this.clClicks.Name = "clClicks";
+            this.clClicks.ReadOnly = true;
+            // 
+            // clTime
+            // 
+            this.clTime.HeaderText = "Time";
+            this.clTime.Name = "clTime";
+            this.clTime.ReadOnly = true;
+            // 
+            // clVelocity
+            // 
+            this.clVelocity.HeaderText = "Velocity";
+            this.clVelocity.Name = "clVelocity";
+            this.clVelocity.ReadOnly = true;
+            // 
+            // clEnergy
+            // 
+            this.clEnergy.HeaderText = "Energy";
+            this.clEnergy.Name = "clEnergy";
+            this.clEnergy.ReadOnly = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel2);
@@ -145,7 +193,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 230F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
@@ -457,6 +505,17 @@
             this.cbAtmosphere.UseVisualStyleBackColor = true;
             this.cbAtmosphere.CheckedChanged += new System.EventHandler(this.cbAtmosphere_CheckedChanged);
             // 
+            // cbClicks
+            // 
+            this.cbClicks.AutoSize = true;
+            this.cbClicks.Location = new System.Drawing.Point(568, 53);
+            this.cbClicks.Name = "cbClicks";
+            this.cbClicks.Size = new System.Drawing.Size(90, 17);
+            this.cbClicks.TabIndex = 21;
+            this.cbClicks.Text = "Enable Clicks";
+            this.cbClicks.UseVisualStyleBackColor = true;
+            this.cbClicks.CheckedChanged += new System.EventHandler(this.cbClicks_CheckedChanged);
+            // 
             // btnCalc
             // 
             this.btnCalc.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -538,65 +597,6 @@
             // 
             this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint_1);
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage_1);
-            // 
-            // clRange
-            // 
-            this.clRange.HeaderText = "Range";
-            this.clRange.Name = "clRange";
-            this.clRange.ReadOnly = true;
-            // 
-            // clDrop
-            // 
-            this.clDrop.HeaderText = "Drop (Inches)";
-            this.clDrop.Name = "clDrop";
-            this.clDrop.ReadOnly = true;
-            // 
-            // clCorrectionMOA
-            // 
-            this.clCorrectionMOA.HeaderText = "Correction (MOA)";
-            this.clCorrectionMOA.Name = "clCorrectionMOA";
-            this.clCorrectionMOA.ReadOnly = true;
-            // 
-            // clCorrectionMIL
-            // 
-            this.clCorrectionMIL.HeaderText = "Correction (MIL)";
-            this.clCorrectionMIL.Name = "clCorrectionMIL";
-            this.clCorrectionMIL.ReadOnly = true;
-            // 
-            // clClicks
-            // 
-            this.clClicks.HeaderText = "Clicks";
-            this.clClicks.Name = "clClicks";
-            this.clClicks.ReadOnly = true;
-            // 
-            // clTime
-            // 
-            this.clTime.HeaderText = "Time";
-            this.clTime.Name = "clTime";
-            this.clTime.ReadOnly = true;
-            // 
-            // clVelocity
-            // 
-            this.clVelocity.HeaderText = "Velocity";
-            this.clVelocity.Name = "clVelocity";
-            this.clVelocity.ReadOnly = true;
-            // 
-            // clEnergy
-            // 
-            this.clEnergy.HeaderText = "Energy";
-            this.clEnergy.Name = "clEnergy";
-            this.clEnergy.ReadOnly = true;
-            // 
-            // cbClicks
-            // 
-            this.cbClicks.AutoSize = true;
-            this.cbClicks.Location = new System.Drawing.Point(568, 53);
-            this.cbClicks.Name = "cbClicks";
-            this.cbClicks.Size = new System.Drawing.Size(90, 17);
-            this.cbClicks.TabIndex = 21;
-            this.cbClicks.Text = "Enable Clicks";
-            this.cbClicks.UseVisualStyleBackColor = true;
-            this.cbClicks.CheckedChanged += new System.EventHandler(this.cbClicks_CheckedChanged);
             // 
             // frmMain
             // 

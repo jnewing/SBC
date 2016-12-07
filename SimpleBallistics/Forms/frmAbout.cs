@@ -16,7 +16,7 @@ namespace SimpleBallistics.Forms
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Version {0} Rev {1}", Main.VERSION, Main.REVISION);
+            this.labelVersion.Text = String.Format("Version {0:N2}, Revision {1}", Main.VERSION, Main.REVISION);
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
