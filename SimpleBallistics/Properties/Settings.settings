@@ -62,5 +62,14 @@
     <Setting Name="clickTurretGrad" Type="System.String" Scope="User">
       <Value Profile="(Default)">1/4</Value>
     </Setting>
+    <Setting Name="dispWindage" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="dispWindageMOA" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="dispWindageMIL" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -39,6 +39,7 @@
             this.cbCorrectionMOA = new System.Windows.Forms.CheckBox();
             this.cbDrop = new System.Windows.Forms.CheckBox();
             this.cbRange = new System.Windows.Forms.CheckBox();
+            this.cbWind = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -66,6 +67,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbElevationUnit = new System.Windows.Forms.ComboBox();
+            this.cbWindageMIL = new System.Windows.Forms.CheckBox();
+            this.cbWindageMOA = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -96,10 +99,10 @@
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(409, 378);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(409, 409);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox2
@@ -108,7 +111,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 148);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(403, 119);
+            this.groupBox2.Size = new System.Drawing.Size(403, 144);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Range Card Settings";
@@ -118,6 +121,8 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.60705F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.39295F));
+            this.tableLayoutPanel3.Controls.Add(this.cbWindageMOA, 0, 4);
+            this.tableLayoutPanel3.Controls.Add(this.cbWindageMIL, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.cbEnergy, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.cbVelocity, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.cbTime, 0, 2);
@@ -125,15 +130,17 @@
             this.tableLayoutPanel3.Controls.Add(this.cbCorrectionMOA, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.cbDrop, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.cbRange, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.cbWind, 1, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowCount = 5;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(397, 100);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(397, 125);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // cbEnergy
@@ -226,6 +233,19 @@
             this.cbRange.TabIndex = 0;
             this.cbRange.Text = "Range";
             this.cbRange.UseVisualStyleBackColor = true;
+            // 
+            // cbWind
+            // 
+            this.cbWind.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbWind.AutoSize = true;
+            this.cbWind.Checked = true;
+            this.cbWind.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbWind.Location = new System.Drawing.Point(191, 79);
+            this.cbWind.Name = "cbWind";
+            this.cbWind.Size = new System.Drawing.Size(110, 17);
+            this.cbWind.TabIndex = 7;
+            this.cbWind.Text = "Windage (Inches)";
+            this.cbWind.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -513,7 +533,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnSave.Location = new System.Drawing.Point(331, 350);
+            this.btnSave.Location = new System.Drawing.Point(331, 378);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 1;
@@ -525,7 +545,7 @@
             // 
             this.groupBox3.Controls.Add(this.tableLayoutPanel4);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 273);
+            this.groupBox3.Location = new System.Drawing.Point(3, 298);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(403, 69);
             this.groupBox3.TabIndex = 2;
@@ -601,11 +621,37 @@
             this.cmbElevationUnit.Size = new System.Drawing.Size(83, 21);
             this.cmbElevationUnit.TabIndex = 3;
             // 
+            // cbWindageMIL
+            // 
+            this.cbWindageMIL.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbWindageMIL.AutoSize = true;
+            this.cbWindageMIL.Checked = true;
+            this.cbWindageMIL.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbWindageMIL.Location = new System.Drawing.Point(191, 104);
+            this.cbWindageMIL.Name = "cbWindageMIL";
+            this.cbWindageMIL.Size = new System.Drawing.Size(96, 17);
+            this.cbWindageMIL.TabIndex = 8;
+            this.cbWindageMIL.Text = "Windage (MIL)";
+            this.cbWindageMIL.UseVisualStyleBackColor = true;
+            // 
+            // cbWindageMOA
+            // 
+            this.cbWindageMOA.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbWindageMOA.AutoSize = true;
+            this.cbWindageMOA.Checked = true;
+            this.cbWindageMOA.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbWindageMOA.Location = new System.Drawing.Point(3, 104);
+            this.cbWindageMOA.Name = "cbWindageMOA";
+            this.cbWindageMOA.Size = new System.Drawing.Size(102, 17);
+            this.cbWindageMOA.TabIndex = 9;
+            this.cbWindageMOA.Text = "Windage (MOA)";
+            this.cbWindageMOA.UseVisualStyleBackColor = true;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 378);
+            this.ClientSize = new System.Drawing.Size(409, 409);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -676,5 +722,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbElevationUnit;
         private System.Windows.Forms.ComboBox cmbTurretGrad;
+        private System.Windows.Forms.CheckBox cbWind;
+        private System.Windows.Forms.CheckBox cbWindageMOA;
+        private System.Windows.Forms.CheckBox cbWindageMIL;
     }
 }

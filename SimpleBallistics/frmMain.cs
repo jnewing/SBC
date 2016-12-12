@@ -69,8 +69,8 @@ namespace SimpleBallistics
             double sh = (double)numSightHeight.Value;
             double angle = 0;
             double zero = (double)numZeroRange.Value;
-            double windspeed = 0;
-            double windangle = 0;
+            double windspeed = (double)numWindSpeed.Value;
+            double windangle = (double)numWindAngle.Value;
             double weight = (double)numBulletWeight.Value;
             BallisticsLib.Ballistics.__DragFunctions dragModel = BallisticsLib.Ballistics.__DragFunctions.G1;
             Enum.TryParse<BallisticsLib.Ballistics.__DragFunctions>(comboBox1.SelectedValue.ToString(), out dragModel);
@@ -105,7 +105,7 @@ namespace SimpleBallistics
             // Now we have everything needed to generate a full solution.
             // So we do.  The solution is stored in the pointer "sln" passed as the last argument.
             // k has the number of yards the solution is valid for, also the number of rows in the solution.
-            calcs = BallisticsLib.Ballistics.SolveAll(dragModel, bc, weight, v, sh, 0, zeroangle, 0, 0);
+            calcs = BallisticsLib.Ballistics.SolveAll(dragModel, bc, weight, v, sh, 0, zeroangle, windspeed, windangle);
 
             for (int x = 5; x <= numMaxRange.Value; x += 5)
             {
@@ -115,6 +115,10 @@ namespace SimpleBallistics
                     Math.Round(calcs[x]["correction_moa"], 2),
                     string.Format("{0}", Math.Round(calcs[x]["correction_mil"] * 1000000, 2)),
                     string.Format("{0}", calcClicks(Math.Round(calcs[x]["correction_mil"] * 1000000, 2), Math.Round(calcs[x]["correction_moa"], 2))),
+                    string.Format("{0}", Math.Round(calcs[x]["windage_in"], 2)),
+                    Math.Round(calcs[x]["windage_moa"], 2),
+                    Math.Round(calcs[x]["windage_mil"], 2),
+                    string.Format("{0}", calcClicks(Math.Round(calcs[x]["windage_mil"], 2), Math.Round(calcs[x]["windage_moa"], 2))),
                     string.Format("{0} sec", Math.Round(calcs[x]["time"], 2)),
                     string.Format("{0} fps", Math.Round(calcs[x]["velocity_z"], 1)),
                     string.Format("{0} ft-lb", Math.Round(calcs[x]["energy"], 2))
@@ -215,11 +219,31 @@ namespace SimpleBallistics
         /// </summary>
         private void RangeCardDisplay()
         {
+            // make elevation in red
+            dataGridView1.Columns["clDrop"].DefaultCellStyle.ForeColor = Color.Red;
+            dataGridView1.Columns["clCorrectionMOA"].DefaultCellStyle.ForeColor = Color.Red;
+            dataGridView1.Columns["clCorrectionMIL"].DefaultCellStyle.ForeColor = Color.Red;
+            dataGridView1.Columns["clClicks"].DefaultCellStyle.ForeColor = Color.Red;
+
+            // windage in green
+            dataGridView1.Columns["clWind"].DefaultCellStyle.ForeColor = Color.Green;
+            dataGridView1.Columns["clWindMOA"].DefaultCellStyle.ForeColor = Color.Green;
+            dataGridView1.Columns["clWindMIL"].DefaultCellStyle.ForeColor = Color.Green;
+            dataGridView1.Columns["clWindClicks"].DefaultCellStyle.ForeColor = Color.Green;
+
             dataGridView1.Columns["clRange"].Visible = Properties.Settings.Default.dispRange;
             dataGridView1.Columns["clDrop"].Visible = Properties.Settings.Default.dispDrop;
             dataGridView1.Columns["clCorrectionMOA"].Visible = Properties.Settings.Default.dispCorrectionMOA;
             dataGridView1.Columns["clCorrectionMIL"].Visible = Properties.Settings.Default.dispCorrectionMIL;
-            dataGridView1.Columns["clClicks"].Visible = Properties.Settings.Default.dispClicks; ;
+
+            // clicks
+            dataGridView1.Columns["clClicks"].Visible = Properties.Settings.Default.dispClicks;
+            dataGridView1.Columns["clWindClicks"].Visible = Properties.Settings.Default.dispClicks;
+
+            dataGridView1.Columns["clWind"].Visible = Properties.Settings.Default.dispWindage;
+            dataGridView1.Columns["clWindMOA"].Visible = Properties.Settings.Default.dispWindageMOA;
+            dataGridView1.Columns["clWindMIL"].Visible = Properties.Settings.Default.dispWindageMIL;
+
             dataGridView1.Columns["clTime"].Visible = Properties.Settings.Default.dispTime;
             dataGridView1.Columns["clVelocity"].Visible = Properties.Settings.Default.dispVelocity;
             dataGridView1.Columns["clEnergy"].Visible = Properties.Settings.Default.dispEnergy;
@@ -320,6 +344,7 @@ namespace SimpleBallistics
         private void SetClickHeaderText()
         {
             dataGridView1.Columns["clClicks"].HeaderText = string.Format("Clicks ({0} {1})", Properties.Settings.Default.clickTurretGrad, Properties.Settings.Default.clickElevationUnit);
+            dataGridView1.Columns["clWindClicks"].HeaderText = string.Format("Clicks ({0} {1})", Properties.Settings.Default.clickTurretGrad, Properties.Settings.Default.clickElevationUnit);
         }
         
         #endregion

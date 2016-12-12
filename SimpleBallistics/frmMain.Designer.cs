@@ -31,14 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.clRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDrop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clCorrectionMOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clCorrectionMIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clClicks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clVelocity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clEnergy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -72,6 +64,24 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.numWindSpeed = new System.Windows.Forms.NumericUpDown();
+            this.numWindAngle = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.clRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDrop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clCorrectionMOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clCorrectionMIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clClicks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clWind = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clWindMOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clWindMIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clWindClicks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clVelocity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clEnergy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -83,6 +93,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numMuzzleVelocity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSightHeight)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numWindSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWindAngle)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -113,6 +125,10 @@
             this.clCorrectionMOA,
             this.clCorrectionMIL,
             this.clClicks,
+            this.clWind,
+            this.clWindMOA,
+            this.clWindMIL,
+            this.clWindClicks,
             this.clTime,
             this.clVelocity,
             this.clEnergy});
@@ -122,54 +138,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(938, 323);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // clRange
-            // 
-            this.clRange.HeaderText = "Range";
-            this.clRange.Name = "clRange";
-            this.clRange.ReadOnly = true;
-            // 
-            // clDrop
-            // 
-            this.clDrop.HeaderText = "Drop (Inches)";
-            this.clDrop.Name = "clDrop";
-            this.clDrop.ReadOnly = true;
-            // 
-            // clCorrectionMOA
-            // 
-            this.clCorrectionMOA.HeaderText = "Correction (MOA)";
-            this.clCorrectionMOA.Name = "clCorrectionMOA";
-            this.clCorrectionMOA.ReadOnly = true;
-            // 
-            // clCorrectionMIL
-            // 
-            this.clCorrectionMIL.HeaderText = "Correction (MIL)";
-            this.clCorrectionMIL.Name = "clCorrectionMIL";
-            this.clCorrectionMIL.ReadOnly = true;
-            // 
-            // clClicks
-            // 
-            this.clClicks.HeaderText = "Clicks";
-            this.clClicks.Name = "clClicks";
-            this.clClicks.ReadOnly = true;
-            // 
-            // clTime
-            // 
-            this.clTime.HeaderText = "Time";
-            this.clTime.Name = "clTime";
-            this.clTime.ReadOnly = true;
-            // 
-            // clVelocity
-            // 
-            this.clVelocity.HeaderText = "Velocity";
-            this.clVelocity.Name = "clVelocity";
-            this.clVelocity.ReadOnly = true;
-            // 
-            // clEnergy
-            // 
-            this.clEnergy.HeaderText = "Energy";
-            this.clEnergy.Name = "clEnergy";
-            this.clEnergy.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -184,16 +152,17 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 9;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 230F));
+            this.tableLayoutPanel2.ColumnCount = 10;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
@@ -214,9 +183,15 @@
             this.tableLayoutPanel2.Controls.Add(this.numSightHeight, 4, 3);
             this.tableLayoutPanel2.Controls.Add(this.label11, 5, 2);
             this.tableLayoutPanel2.Controls.Add(this.label12, 5, 3);
-            this.tableLayoutPanel2.Controls.Add(this.cbAtmosphere, 7, 1);
-            this.tableLayoutPanel2.Controls.Add(this.cbClicks, 7, 2);
-            this.tableLayoutPanel2.Controls.Add(this.btnCalc, 8, 1);
+            this.tableLayoutPanel2.Controls.Add(this.cbAtmosphere, 9, 1);
+            this.tableLayoutPanel2.Controls.Add(this.cbClicks, 9, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label13, 6, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label14, 6, 2);
+            this.tableLayoutPanel2.Controls.Add(this.numWindSpeed, 7, 1);
+            this.tableLayoutPanel2.Controls.Add(this.numWindAngle, 7, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label15, 8, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label16, 8, 2);
+            this.tableLayoutPanel2.Controls.Add(this.btnCalc, 9, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -233,7 +208,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 6);
+            this.label1.Location = new System.Drawing.Point(22, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 0;
@@ -243,7 +218,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 31);
+            this.label2.Location = new System.Drawing.Point(20, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 1;
@@ -253,7 +228,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 56);
+            this.label3.Location = new System.Drawing.Point(14, 56);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 2;
@@ -270,7 +245,7 @@
             "G6",
             "G7",
             "G8"});
-            this.comboBox1.Location = new System.Drawing.Point(123, 3);
+            this.comboBox1.Location = new System.Drawing.Point(93, 3);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(61, 21);
             this.comboBox1.TabIndex = 3;
@@ -282,14 +257,14 @@
             0,
             0,
             0});
-            this.numZeroRange.Location = new System.Drawing.Point(123, 28);
+            this.numZeroRange.Location = new System.Drawing.Point(93, 28);
             this.numZeroRange.Maximum = new decimal(new int[] {
             99999999,
             0,
             0,
             0});
             this.numZeroRange.Name = "numZeroRange";
-            this.numZeroRange.Size = new System.Drawing.Size(119, 20);
+            this.numZeroRange.Size = new System.Drawing.Size(104, 20);
             this.numZeroRange.TabIndex = 4;
             this.numZeroRange.Value = new decimal(new int[] {
             100,
@@ -299,7 +274,7 @@
             // 
             // numBulletWeight
             // 
-            this.numBulletWeight.Location = new System.Drawing.Point(123, 53);
+            this.numBulletWeight.Location = new System.Drawing.Point(93, 53);
             this.numBulletWeight.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -311,7 +286,7 @@
             0,
             0});
             this.numBulletWeight.Name = "numBulletWeight";
-            this.numBulletWeight.Size = new System.Drawing.Size(119, 20);
+            this.numBulletWeight.Size = new System.Drawing.Size(104, 20);
             this.numBulletWeight.TabIndex = 5;
             this.numBulletWeight.Value = new decimal(new int[] {
             140,
@@ -323,7 +298,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(52, 81);
+            this.label4.Location = new System.Drawing.Point(22, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 6;
@@ -331,7 +306,7 @@
             // 
             // numMaxRange
             // 
-            this.numMaxRange.Location = new System.Drawing.Point(123, 78);
+            this.numMaxRange.Location = new System.Drawing.Point(93, 78);
             this.numMaxRange.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -343,7 +318,7 @@
             0,
             0});
             this.numMaxRange.Name = "numMaxRange";
-            this.numMaxRange.Size = new System.Drawing.Size(119, 20);
+            this.numMaxRange.Size = new System.Drawing.Size(104, 20);
             this.numMaxRange.TabIndex = 7;
             this.numMaxRange.Value = new decimal(new int[] {
             500,
@@ -355,7 +330,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(248, 31);
+            this.label5.Location = new System.Drawing.Point(203, 31);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(18, 13);
             this.label5.TabIndex = 8;
@@ -365,7 +340,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(248, 56);
+            this.label6.Location = new System.Drawing.Point(203, 56);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(16, 13);
             this.label6.TabIndex = 9;
@@ -375,7 +350,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(248, 81);
+            this.label7.Location = new System.Drawing.Point(203, 81);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(18, 13);
             this.label7.TabIndex = 10;
@@ -385,7 +360,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(362, 31);
+            this.label8.Location = new System.Drawing.Point(290, 31);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(27, 13);
             this.label8.TabIndex = 11;
@@ -394,14 +369,14 @@
             // numBC
             // 
             this.numBC.DecimalPlaces = 3;
-            this.numBC.Location = new System.Drawing.Point(395, 28);
+            this.numBC.Location = new System.Drawing.Point(323, 28);
             this.numBC.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numBC.Name = "numBC";
-            this.numBC.Size = new System.Drawing.Size(119, 20);
+            this.numBC.Size = new System.Drawing.Size(104, 20);
             this.numBC.TabIndex = 12;
             this.numBC.Value = new decimal(new int[] {
             607,
@@ -413,7 +388,7 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(306, 56);
+            this.label9.Location = new System.Drawing.Point(234, 56);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 13);
             this.label9.TabIndex = 13;
@@ -426,7 +401,7 @@
             0,
             0,
             0});
-            this.numMuzzleVelocity.Location = new System.Drawing.Point(395, 53);
+            this.numMuzzleVelocity.Location = new System.Drawing.Point(323, 53);
             this.numMuzzleVelocity.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -438,7 +413,7 @@
             0,
             0});
             this.numMuzzleVelocity.Name = "numMuzzleVelocity";
-            this.numMuzzleVelocity.Size = new System.Drawing.Size(119, 20);
+            this.numMuzzleVelocity.Size = new System.Drawing.Size(104, 20);
             this.numMuzzleVelocity.TabIndex = 14;
             this.numMuzzleVelocity.Value = new decimal(new int[] {
             2732,
@@ -450,7 +425,7 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(321, 81);
+            this.label10.Location = new System.Drawing.Point(249, 81);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(68, 13);
             this.label10.TabIndex = 15;
@@ -459,14 +434,14 @@
             // numSightHeight
             // 
             this.numSightHeight.DecimalPlaces = 2;
-            this.numSightHeight.Location = new System.Drawing.Point(395, 78);
+            this.numSightHeight.Location = new System.Drawing.Point(323, 78);
             this.numSightHeight.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.numSightHeight.Name = "numSightHeight";
-            this.numSightHeight.Size = new System.Drawing.Size(119, 20);
+            this.numSightHeight.Size = new System.Drawing.Size(104, 20);
             this.numSightHeight.TabIndex = 16;
             this.numSightHeight.Value = new decimal(new int[] {
             260,
@@ -478,7 +453,7 @@
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(520, 56);
+            this.label11.Location = new System.Drawing.Point(433, 56);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(21, 13);
             this.label11.TabIndex = 17;
@@ -488,7 +463,7 @@
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(520, 81);
+            this.label12.Location = new System.Drawing.Point(433, 81);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(15, 13);
             this.label12.TabIndex = 18;
@@ -497,7 +472,7 @@
             // cbAtmosphere
             // 
             this.cbAtmosphere.AutoSize = true;
-            this.cbAtmosphere.Location = new System.Drawing.Point(568, 28);
+            this.cbAtmosphere.Location = new System.Drawing.Point(723, 28);
             this.cbAtmosphere.Name = "cbAtmosphere";
             this.cbAtmosphere.Size = new System.Drawing.Size(118, 17);
             this.cbAtmosphere.TabIndex = 20;
@@ -508,7 +483,7 @@
             // cbClicks
             // 
             this.cbClicks.AutoSize = true;
-            this.cbClicks.Location = new System.Drawing.Point(568, 53);
+            this.cbClicks.Location = new System.Drawing.Point(723, 53);
             this.cbClicks.Name = "cbClicks";
             this.cbClicks.Size = new System.Drawing.Size(90, 17);
             this.cbClicks.TabIndex = 21;
@@ -518,11 +493,11 @@
             // 
             // btnCalc
             // 
-            this.btnCalc.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnCalc.Location = new System.Drawing.Point(705, 28);
+            this.btnCalc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCalc.Location = new System.Drawing.Point(723, 78);
             this.btnCalc.Name = "btnCalc";
             this.tableLayoutPanel2.SetRowSpan(this.btnCalc, 2);
-            this.btnCalc.Size = new System.Drawing.Size(133, 44);
+            this.btnCalc.Size = new System.Drawing.Size(206, 44);
             this.btnCalc.TabIndex = 19;
             this.btnCalc.Text = "Calculate";
             this.btnCalc.UseVisualStyleBackColor = true;
@@ -598,6 +573,152 @@
             this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint_1);
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage_1);
             // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(478, 31);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 13);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "Wind Speed:";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(482, 56);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 13);
+            this.label14.TabIndex = 23;
+            this.label14.Text = "Wind Angle:";
+            // 
+            // numWindSpeed
+            // 
+            this.numWindSpeed.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numWindSpeed.Location = new System.Drawing.Point(553, 28);
+            this.numWindSpeed.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.numWindSpeed.Name = "numWindSpeed";
+            this.numWindSpeed.Size = new System.Drawing.Size(104, 20);
+            this.numWindSpeed.TabIndex = 24;
+            // 
+            // numWindAngle
+            // 
+            this.numWindAngle.Location = new System.Drawing.Point(553, 53);
+            this.numWindAngle.Maximum = new decimal(new int[] {
+            360,
+            0,
+            0,
+            0});
+            this.numWindAngle.Minimum = new decimal(new int[] {
+            360,
+            0,
+            0,
+            -2147483648});
+            this.numWindAngle.Name = "numWindAngle";
+            this.numWindAngle.Size = new System.Drawing.Size(104, 20);
+            this.numWindAngle.TabIndex = 25;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(663, 31);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(27, 13);
+            this.label15.TabIndex = 26;
+            this.label15.Text = "mph";
+            // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(663, 56);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(52, 13);
+            this.label16.TabIndex = 27;
+            this.label16.Text = "° degrees";
+            // 
+            // clRange
+            // 
+            this.clRange.HeaderText = "Range";
+            this.clRange.Name = "clRange";
+            this.clRange.ReadOnly = true;
+            // 
+            // clDrop
+            // 
+            this.clDrop.HeaderText = "Drop (Inches)";
+            this.clDrop.Name = "clDrop";
+            this.clDrop.ReadOnly = true;
+            // 
+            // clCorrectionMOA
+            // 
+            this.clCorrectionMOA.HeaderText = "Correction (MOA)";
+            this.clCorrectionMOA.Name = "clCorrectionMOA";
+            this.clCorrectionMOA.ReadOnly = true;
+            // 
+            // clCorrectionMIL
+            // 
+            this.clCorrectionMIL.HeaderText = "Correction (MIL)";
+            this.clCorrectionMIL.Name = "clCorrectionMIL";
+            this.clCorrectionMIL.ReadOnly = true;
+            // 
+            // clClicks
+            // 
+            this.clClicks.HeaderText = "Clicks";
+            this.clClicks.Name = "clClicks";
+            this.clClicks.ReadOnly = true;
+            // 
+            // clWind
+            // 
+            this.clWind.HeaderText = "Windage (Inches)";
+            this.clWind.Name = "clWind";
+            this.clWind.ReadOnly = true;
+            // 
+            // clWindMOA
+            // 
+            this.clWindMOA.HeaderText = "Windage (MOA)";
+            this.clWindMOA.Name = "clWindMOA";
+            this.clWindMOA.ReadOnly = true;
+            // 
+            // clWindMIL
+            // 
+            this.clWindMIL.HeaderText = "Windage (MIL)";
+            this.clWindMIL.Name = "clWindMIL";
+            this.clWindMIL.ReadOnly = true;
+            // 
+            // clWindClicks
+            // 
+            this.clWindClicks.HeaderText = "Clicks";
+            this.clWindClicks.Name = "clWindClicks";
+            this.clWindClicks.ReadOnly = true;
+            // 
+            // clTime
+            // 
+            this.clTime.HeaderText = "Time";
+            this.clTime.Name = "clTime";
+            this.clTime.ReadOnly = true;
+            // 
+            // clVelocity
+            // 
+            this.clVelocity.HeaderText = "Velocity";
+            this.clVelocity.Name = "clVelocity";
+            this.clVelocity.ReadOnly = true;
+            // 
+            // clEnergy
+            // 
+            this.clEnergy.HeaderText = "Energy";
+            this.clEnergy.Name = "clEnergy";
+            this.clEnergy.ReadOnly = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -625,6 +746,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numSightHeight)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numWindSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWindAngle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -666,15 +789,25 @@
         private System.Windows.Forms.CheckBox cbAtmosphere;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.CheckBox cbClicks;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.NumericUpDown numWindSpeed;
+        private System.Windows.Forms.NumericUpDown numWindAngle;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridViewTextBoxColumn clRange;
         private System.Windows.Forms.DataGridViewTextBoxColumn clDrop;
         private System.Windows.Forms.DataGridViewTextBoxColumn clCorrectionMOA;
         private System.Windows.Forms.DataGridViewTextBoxColumn clCorrectionMIL;
         private System.Windows.Forms.DataGridViewTextBoxColumn clClicks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clWind;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clWindMOA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clWindMIL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clWindClicks;
         private System.Windows.Forms.DataGridViewTextBoxColumn clTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn clVelocity;
         private System.Windows.Forms.DataGridViewTextBoxColumn clEnergy;
-        private System.Windows.Forms.CheckBox cbClicks;
     }
 }
 

@@ -262,5 +262,41 @@ namespace SimpleBallistics.Properties {
                 this["clickTurretGrad"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool dispWindage {
+            get {
+                return ((bool)(this["dispWindage"]));
+            }
+            set {
+                this["dispWindage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool dispWindageMOA {
+            get {
+                return ((bool)(this["dispWindageMOA"]));
+            }
+            set {
+                this["dispWindageMOA"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool dispWindageMIL {
+            get {
+                return ((bool)(this["dispWindageMIL"]));
+            }
+            set {
+                this["dispWindageMIL"] = value;
+            }
+        }
     }
 }

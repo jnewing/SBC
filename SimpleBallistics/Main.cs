@@ -14,12 +14,12 @@ namespace SimpleBallistics
         /// <summary>
         /// RangeMonkey version major
         /// </summary>
-        public const double VERSION = 1.0;
+        public const double VERSION = 1.1;
         
         /// <summary>
         /// RangeMonkey version minor
         /// </summary>
-        public const int REVISION = 10;
+        public const int REVISION = 241;
         
         /// <summary>
         /// Is this a beta version?

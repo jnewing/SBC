@@ -365,10 +365,11 @@ namespace SimpleBallistics.BallisticsLib
                         { "range", x / 3 },                                         // range in yards
                         { "path", y * 12 },                                         // path in inches
                         { "correction_moa", -RadtoMOA(Math.Atan(y / x)) },          // correction in MOA
-                        { "correction_mil",  -RadtoMIL(Math.Atan(y / x)) },          // correction in MIL
+                        { "correction_mil", -RadtoMIL(Math.Atan(y / x)) },          // correction in MIL
                         { "time", t + dt },                                         // time in seconds
                         { "windage_in", Windage(crosswind, Vi, x, t + dt) },        // windade in inches
-                        { "windage_moa", RadtoMOA(Math.Atan(10 * n + 4)) },         // windage in MOA
+                        { "windage_moa", InchestoMOA(x / 3, Windage(crosswind, Vi, x, t + dt)) },         // windage in MOA
+                        { "windage_mil", InchestoMIL(x / 3, Windage(crosswind, Vi, x, t + dt)) },         // windage in MOA
                         { "velocity_z", v },                                        // velocity (combined)
                         { "velocity_x", vx },                                       // velocity (x)
                         { "velocity_y", vy },                                       // Velocity (y)
@@ -561,6 +562,21 @@ namespace SimpleBallistics.BallisticsLib
             return (int)Math.Ceiling((moa / grad));
         }
 
+        /// <summary>
+        /// Takes inches and a given correction and returns MOA
+        /// </summary>
+        /// <param name="range"></param>
+        /// <param name="correction"></param>
+        /// <returns></returns>
+        public static double InchestoMOA(double range, double correction)
+        {
+            return correction / ((range / 100) * 1.047);
+        }
+
+        public static double InchestoMIL(double range, double correction)
+        {
+            return correction / ((range / 100) * 3.6);
+        }
         
     }
 }

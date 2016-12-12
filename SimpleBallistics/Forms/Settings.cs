@@ -34,9 +34,12 @@ namespace SimpleBallistics.Forms
             cbVelocity.Checked = Properties.Settings.Default.dispVelocity;
             cbEnergy.Checked = Properties.Settings.Default.dispEnergy;
 
+            cbWind.Checked = Properties.Settings.Default.dispWindage;
+            cbWindageMOA.Checked = Properties.Settings.Default.dispWindageMOA;
+            cbWindageMIL.Checked = Properties.Settings.Default.dispWindageMIL;
+
             cmbElevationUnit.SelectedIndex = cmbElevationUnit.Items.IndexOf(Properties.Settings.Default.clickElevationUnit);
             cmbTurretGrad.SelectedIndex = cmbTurretGrad.Items.IndexOf(Properties.Settings.Default.clickTurretGrad);
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -62,6 +65,10 @@ namespace SimpleBallistics.Forms
             Properties.Settings.Default.dispTime = cbTime.Checked;
             Properties.Settings.Default.dispVelocity = cbVelocity.Checked;
             Properties.Settings.Default.dispEnergy = cbEnergy.Checked;
+
+            Properties.Settings.Default.dispWindage = cbWind.Checked;
+            Properties.Settings.Default.dispWindageMOA = cbWindageMOA.Checked;
+            Properties.Settings.Default.dispWindageMIL = cbWindageMIL.Checked;
 
             Properties.Settings.Default.clickElevationUnit = cmbElevationUnit.SelectedItem.ToString();
             Properties.Settings.Default.clickTurretGrad = cmbTurretGrad.SelectedItem.ToString();
